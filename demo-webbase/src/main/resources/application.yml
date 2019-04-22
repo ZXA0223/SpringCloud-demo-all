@@ -12,3 +12,7 @@ eureka:
       defaultZone: http://localhost:9990/eureka/  #这里和注册中心的一样就能注册到注册中心
   instance:
     prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
