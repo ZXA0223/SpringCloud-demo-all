@@ -61,6 +61,8 @@
         <module>../demo-webbase</module>
         <module>../demo-ucenter</module>
         <module>../demo-common</module>
+        <module>../demo-turbine</module>
+        <module>../demo-configcenter</module>
     </modules>
 
 </project>

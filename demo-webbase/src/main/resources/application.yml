@@ -1,8 +1,20 @@
 spring:
   application:
     name: demo-webbase    #工程名(在注册中心的页面看到的名字)
+  thymeleaf:
+    cache: false  #关闭缓存才能查看实时页面(开发)
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  servlet:
+    multipart:
+      max-request-size: 10MB #单次上传总大小
+      max-file-size: 10MB #单个文件最大值
 server:
   port: 9992  #端口号
+
+
 
 eureka:
   client:
@@ -16,3 +28,9 @@ feign:
   hystrix:
     enabled: true
 
+#
+#logging:
+#  config: classpath:log4j2.xml
+#
+#excel:
+#  config: classpath:excel.xml

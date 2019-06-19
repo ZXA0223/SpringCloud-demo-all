@@ -1,18 +1,38 @@
 package com.zongyi.demoucenter;
 
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@EnableEurekaServer  //注册+发现服务
 @EnableFeignClients  //远程调用
+@EnableDiscoveryClient
+@EnableHystrixDashboard
+@EnableHystrix
+@EnableCircuitBreaker
 /*服务的提供者也可能会调用其他服务 所以两个同时写也没关系*/
 public class DemoUcenterApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoUcenterApplication.class, args);
+    }
+
+    @Bean
+    public ServletRegistrationBean getServlet(){
+        HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+        registrationBean.setLoadOnStartup(1);
+        registrationBean.addUrlMappings("/actuator/hystrix.stream");
+        registrationBean.setName("HystrixMetricsStreamServlet");
+        return registrationBean;
     }
 
 }

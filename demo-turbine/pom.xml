@@ -8,54 +8,56 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../demo-parent/pom.xml</relativePath>
     </parent>
-
     <groupId>com.zongyi</groupId>
-    <artifactId>demo-ucenter</artifactId>
+    <artifactId>demo-turbine</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-ucenter</name>
+    <name>demo-turbine</name>
     <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
     <dependencies>
-        <!--项目公共依赖-->
         <dependency>
-            <groupId>com.zongyi</groupId>
-            <artifactId>demo-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--SpringCloud依赖注册+发现 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        <!--远程调用依赖-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!--测试依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--熔断监控依赖-->
-        <dependency>
-            <groupId>com.netflix.hystrix</groupId>
-            <artifactId>hystrix-javanica</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
-        </dependency>
+        <!--监控依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-turbine</artifactId>
+            <version>2.0.0.RC2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--熔断监控依赖结束-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
+            <version>2.0.0.RC2</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--监控依赖结束-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
