@@ -1,6 +1,5 @@
 package com.zongyi.demoucenter.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("ucenterTestController")
 public class UCenterTestController {
 
-    @Value("${testValue}")
+//    @Value("${testValue}")
     private String testValue;
 
     private int i = 0;
