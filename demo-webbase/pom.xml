@@ -34,15 +34,15 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--SpringCloud依赖使用eureka注册+发现的依赖 -->
-        <!--<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>-->
-        <!--SpringCloud依赖使用consul注册+发现的依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        <!--SpringCloud依赖使用consul注册+发现的依赖-->
+        <!--<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>-->
         <!--远程调用依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
