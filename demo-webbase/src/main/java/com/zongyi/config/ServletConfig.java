@@ -1,9 +1,6 @@
 package com.zongyi.config;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
-import com.zongyi.WebbaseApplication;
-import com.zongyi.utils.XmlUtil;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,10 +19,4 @@ public class ServletConfig {
         return registrationBean;
     }
 
-    @Bean
-    public XmlUtil getXmlUtil(){
-        String path = WebbaseApplication.class.getClassLoader().getResource("excel.xml").getPath();
-        System.out.println(path);
-        return new XmlUtil(path);
-    }
 }

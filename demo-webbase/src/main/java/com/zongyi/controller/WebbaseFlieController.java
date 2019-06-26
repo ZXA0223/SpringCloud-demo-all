@@ -1,7 +1,6 @@
 package com.zongyi.controller;
 
 import com.zongyi.commom.User;
-import com.zongyi.utils.CommonUtil;
 import com.zongyi.utils.fileutil.ExcelUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,21 +46,14 @@ public class WebbaseFlieController {
     @RequestMapping("tsetFileUtil")
     @ResponseBody
     public String tsetFileUtil() {
-        setVa();
+        /*setVa();
         System.out.println("-------");
         List<Object> user = com.zongyi.utils.ExcelUtil.getDate("C:\\Users\\admin\\Desktop\\test.xlsx", "user");
         for (Object o : user) {
             System.out.println(o);
-        }
+        }*/
         return "";
     }
 
-    void setVa(){
-        Map<String,String> map=new HashMap<String, String>();
-        map.put("普通用户","1");
-        map.put("会员","2");
-        map.put("管理员","3");
-        CommonUtil.setValueMap("user.userType",map);
-    }
 
 }
